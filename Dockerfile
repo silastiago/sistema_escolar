@@ -2,11 +2,12 @@
 FROM python:3.8
 
 # Make a directory called "code" which will contain the source code. This will be used as a volume in our docker-compose.yml file
-RUN mkdir /code
+RUN mkdir /app
+
+COPY . /app
 
 # Set the working directory for the container. I.e. all commands will be based out of this directory
-WORKDIR /code
+WORKDIR /app
 
 # Install all dependencies required for this project. the trusted-host flag is useful if you are behind a corporate proxy.
-RUN pip3 install -r /tmp/requirements.txt
-RUN rm /tmp/requirements.txt
+RUN pip3 install -r /app/requirements.txt

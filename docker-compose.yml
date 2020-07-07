@@ -6,11 +6,8 @@ services:
         command: >
                  bash -c "python manage.py makemigrations &&
                           python manage.py migrate &&
-                          python manage.py runserver &&
-                          gunicorn --chdir /code sistem_escolar.wsgi:application --bind 0.0.0.0:8000"
+                          gunicorn --chdir /app sistema_escolar.wsgi:application --bind 0.0.0.0:8000"
 
         container_name: app
-        volumes:
-            - ../sistema_escolar:/code
         ports:
             - 8000:8000
