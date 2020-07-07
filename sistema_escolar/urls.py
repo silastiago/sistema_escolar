@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
 from rest_framework import routers
+from rest_framework.authtoken.views import obtain_auth_token
+
 from estudantes.api.viewsets import EstudanteViewSet
 from disciplinas.api.viewsets import DisciplinaViewSet
 
@@ -26,5 +28,6 @@ router.register('disciplinas', DisciplinaViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
+    path('api-token-auth/', obtain_auth_token),
     path('admin/', admin.site.urls),
 ]
