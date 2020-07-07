@@ -18,10 +18,11 @@ from django.urls import path
 from django.conf.urls import include
 from rest_framework import routers
 from estudantes.api.viewsets import EstudanteViewSet
-
+from disciplinas.api.viewsets import DisciplinaViewSet
 
 router = routers.DefaultRouter()
 router.register('estudantes', EstudanteViewSet)
+router.register('disciplinas', DisciplinaViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
